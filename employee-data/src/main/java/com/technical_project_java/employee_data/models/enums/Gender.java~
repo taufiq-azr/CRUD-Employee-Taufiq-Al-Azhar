@@ -1,0 +1,6 @@
+package com.technical_project_java.employee_data.models.enums;
+
+public enum Gender {
+    LakiLaki,
+    Perempuan
+}

@@ -1,0 +1,269 @@
+<div id="overlay-detail" class="overlay-backdrop">
+    <div class="modal-dialog d-flex align-items-center min-vh-100">
+        <div class="modal-content overlay-content p-4 bg-white rounded shadow-lg">
+            <button class="close-button btn btn-danger btn-sm" onclick="closeDetailForm()">X</button>
+            <div id="editFormContainer" data-id="">
+                <h3 class="text-center mb-2">Detail Data Pribadi</h3>
+                <form id="addForm">
+                    <div class="mb-2">
+                        <label for="nik-data" class="form-label">NIK</label>
+                        <input type="text" id="nik-data" class="form-control" readonly>
+                    </div>
+                    <div class="mb-1">
+                        <label for="fullname-data" class="form-label">Nama Lengkap</label>
+                        <input type="text" id="fullname-data" class="form-control" readonly>
+                    </div>
+                    <div class="mb-1">
+                        <label for="age" class="form-label">Umur</label>
+                        <input type="number" id="age" class="form-control" readonly>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">Jenis Kelamin</label>
+                        <div>
+                            <input type="radio" id="Laki-Laki" name="gender" value="Laki-Laki" disabled>
+                            <label for="Laki-Laki" class="me-2">Laki-laki</label>
+                            <input type="radio" id="Perempuan" name="gender" value="Perempuan" disabled>
+                            <label for="Perempuan">Perempuan</label>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="birthDate" class="form-label">Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="birthDate" readonly>
+                    </div>
+                    <div class="mb-2">
+                        <label for="address" class="form-label">Alamat</label>
+                        <textarea class="form-control" id="address" rows="2" readonly></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="country" class="form-label">Negara</label>
+                        <select class="form-control select2" id="country" style="width: 100%" disabled>
+                            <option value="">Pilih Negara</option>
+                        </select>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary" onclick="closeDetailForm()">Kembali</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="updatedMessage" class="success-message">
+    Data berhasil disimpan!
+</div>
+
+
+<style>
+    /* Overlay background */
+    .overlay-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 1000;
+    }
+
+    .modal-dialog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        min-width: 300px;
+        /* Tambahkan lebar minimum */
+        margin: 0;
+    }
+
+
+    .modal-content {
+        position: relative;
+        width: 100%;
+        margin: 20px;
+        z-index: 1010;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1020;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+
+    /* Style untuk selection box */
+    .select2-container .select2-selection--single {
+        height: calc(2.25rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+    /* Style untuk placeholder */
+    .select2-container .select2-selection--single .select2-selection__placeholder {
+        color: #6c757d;
+    }
+
+    /* Style untuk selected item */
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 0;
+        height: 100%;
+        line-height: 1.5;
+        color: #212529;
+    }
+
+    /* Style untuk arrow */
+    .select2-container .select2-selection--single .select2-selection__arrow {
+        height: 100%;
+        width: 30px;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__arrow b {
+        border-color: #6c757d transparent transparent transparent;
+        border-width: 6px 6px 0 6px;
+    }
+
+    /* Style untuk dropdown */
+    .select2-container--default .select2-dropdown {
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    /* Style untuk search box */
+    .select2-container--default .select2-search--dropdown .select2-search__field {
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        padding: 0.375rem 0.75rem;
+    }
+
+    .select2-container--default .select2-search--dropdown .select2-search__field:focus {
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    /* Style untuk options */
+    .select2-container--default .select2-results__option {
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem;
+    }
+
+    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+        background-color: #0d6efd;
+        color: white;
+    }
+
+    /* Style untuk hover state */
+    .select2-container .select2-selection--single:hover {
+        border-color: #86b7fe;
+    }
+
+    /* Style untuk focus state */
+    .select2-container.select2-container--focus .select2-selection--single {
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    /* Style untuk disabled state */
+    .select2-container--default.select2-container--disabled .select2-selection--single {
+        background-color: #e9ecef;
+        cursor: not-allowed;
+    }
+
+    /* Style untuk clear button */
+    .select2-container--default .select2-selection--single .select2-selection__clear {
+        margin-right: 10px;
+        color: #6c757d;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__clear:hover {
+        color: #dc3545;
+    }
+
+    /* Style untuk no results */
+    .select2-container--default .select2-results__message {
+        color: #6c757d;
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* Animasi dropdown */
+    .select2-container--default .select2-dropdown {
+        animation: fadeIn 0.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .success-message {
+        visibility: hidden;
+        opacity: 0;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #28a745;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        transition: visibility 0s, opacity 0.5s ease;
+    }
+
+    .success-message.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+    /* Responsive pada mobile */
+    @media (max-width: 576px) {
+        .select2-container .select2-selection--single {
+            font-size: 0.875rem;
+        }
+
+        .select2-container--default .select2-results__option {
+            font-size: 0.875rem;
+            padding: 0.4rem 0.6rem;
+        }
+    }
+
+
+    /* Memastikan modal responsif pada mobile */
+    @media (max-width: 576px) {
+        .modal-content {
+            margin: 10px;
+            width: 95%;
+        }
+    }
+</style>

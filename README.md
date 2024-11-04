@@ -10,7 +10,7 @@ Aplikasi ini merupakan front-end untuk mengelola data karyawan dengan menggunaka
 - Menambahkan karyawan baru.
 - Memperbarui informasi karyawan.
 - Menghapus karyawan.
-- Mencari karyawan berdasarkan ID, NIK, atau nama.
+- Mencari karyawan berdasarkan NIK, atau nama.
 
 ## Prasyarat
 

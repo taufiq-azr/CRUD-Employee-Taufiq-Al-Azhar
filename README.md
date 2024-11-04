@@ -1,4 +1,6 @@
-# Employee Management API Documentation Front-End ( HTML, Javascript, CSS (JQuery, Bootstrap) )
+# Employee Management API Documentation 
+
+# Front-End ( HTML, Javascript, CSS (JQuery, Bootstrap) )
 
 Aplikasi ini merupakan front-end untuk mengelola data karyawan dengan menggunakan HTML, JavaScript, CSS, JQuery, dan Bootstrap. Front-end ini berkomunikasi dengan back-end yang dibangun menggunakan Java Spring Boot.
 
